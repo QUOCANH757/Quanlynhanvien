@@ -1,0 +1,5 @@
+# Trên Linux/Mac
+chmod 777 public/www/uploads/
+
+# Hoặc tạo file .gitkeep để giữ thư mục trong git
+touch public/www/uploads/.gitkeep

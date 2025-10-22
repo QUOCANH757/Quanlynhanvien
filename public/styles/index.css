@@ -1,0 +1,382 @@
+/* ============================================
+     CÀI ĐẶT BIẾN SỐ VÀ KIỂU DÁNG CHUNG (GLOBAL)
+     ============================================
+*/
+:root {
+    --primary-color: #007bff;
+    --primary-color-dark: #0056b3;
+    --success-color: #1f773c;
+    /* [SỬA] Đổi sang màu xanh lá đậm hơn */
+    --success-bg: #e9f7ec;
+    /* [SỬA] Màu nền xanh lá rất nhạt (lỗi màu cũ) */
+    --success-border: #bde4ca;
+    /* [SỬA] Màu viền xanh lá */
+    --error-color: #dc3545;
+    --error-bg: #fbebed;
+    --error-border: #f1b9bd;
+    --error-color-dark: #b02a37;
+    /* [THÊM] Biến màu đỏ đậm khi hover */
+    --warning-color: #ffc107;
+    --warning-color-dark: #e0a800;
+    /* [THÊM] Biến màu vàng đậm khi hover */
+    --warning-text: #333;
+    --secondary-color: #6c757d;
+    --secondary-color-dark: #5a6268;
+    --blue-color: #0d6efd;
+    /* [THÊM] Biến màu xanh dương cho nút detail */
+    --blue-color-dark: #0b5ed7;
+    /* [THÊM] Biến màu xanh đậm khi hover */
+    --light-gray: #f8f9fa;
+    --medium-gray: #e9ecef;
+    --dark-gray: #6c757d;
+    --text-color: #343a40;
+    --text-color-light: #6c757d;
+    --body-bg: #f8f9fa;
+    --white-color: #ffffff;
+
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --transition-speed: 0.2s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: var(--body-bg);
+    color: var(--text-color);
+    padding: 20px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    background-color: var(--white-color);
+    padding: 30px;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--box-shadow);
+}
+
+h1 {
+    color: var(--text-color);
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+/* ============================================
+     CÁC THÀNH PHẦN (COMPONENTS)
+     ============================================
+*/
+
+/* Bài 9: Thông báo (Alerts) */
+/* * Ghi chú: Bootstrap đã xử lý .alert-success. 
+ * Chúng ta chỉ cần định nghĩa .alert-error (vì Bootstrap dùng .alert-danger)
+ */
+.alert {
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    border-radius: var(--border-radius-sm);
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+}
+
+.alert::before {
+    font-size: 20px;
+    line-height: 1;
+}
+
+/* * Giữ lại .alert-success để ghi đè màu của Bootstrap nếu bạn muốn
+ * (Nếu không, bạn có thể xóa khối này và dùng màu mặc định của Bootstrap)
+ */
+.alert-success {
+    background: var(--success-bg);
+    color: var(--success-color);
+    border-color: var(--success-border);
+}
+
+.alert-success::before {
+    content: '✔';
+}
+
+.alert-error {
+    background: var(--error-bg);
+    color: var(--error-color);
+    border-color: var(--error-border);
+}
+
+.alert-error::before {
+    content: '✖';
+}
+
+/* Bài 5: Thanh tìm kiếm */
+.search-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid var(--medium-gray);
+    border-radius: 10px;
+    font-size: 14px;
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.search-bar input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+}
+
+/* Nút bấm (Buttons) */
+.actions {
+    margin-bottom: 20px;
+    display: flex;
+    /* [THÊM] Sắp xếp các nút hành động chính */
+    flex-wrap: wrap;
+    /* [THÊM] Cho phép xuống hàng trên di động */
+    gap: 10px;
+    /* [THÊM] Thêm khoảng cách */
+}
+
+/* * Ghi đè hiệu ứng hover chung cho TẤT CẢ các nút 
+ * (kể cả nút của Bootstrap) 
+ */
+.btn {
+    /* * Xóa các thuộc tính chung như padding, border, ... 
+     * để Bootstrap xử lý. Giữ lại hiệu ứng!
+     */
+    transition: background-color var(--transition-speed), transform var(--transition-speed), box-shadow 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    /* [THÊM] Đổ bóng nhẹ khi hover */
+}
+
+/* * Ghi đè MÀU SẮC cho các nút.
+ * HTML dùng "btn-primary" nhưng muốn màu xanh lá.
+ */
+.btn-primary {
+    background: var(--success-color) !important;
+    /* Thêm !important để thắng Bootstrap */
+    border-color: var(--success-color) !important;
+    color: var(--white-color);
+}
+
+.btn-primary:hover {
+    background: #218838 !important;
+    border-color: #218838 !important;
+}
+
+.btn-secondary {
+    background: var(--secondary-color) !important;
+    border-color: var(--secondary-color) !important;
+    color: var(--white-color);
+}
+
+.btn-secondary:hover {
+    background: var(--secondary-color-dark) !important;
+    border-color: var(--secondary-color-dark) !important;
+}
+
+/* Nút Tìm kiếm trong search-bar */
+.search-bar button {
+    background: var(--primary-color);
+    color: var(--white-color);
+    padding: 10px 20px;
+    /* [THÊM] */
+    border: none;
+    /* [THÊM] */
+    border-radius: 10px;
+    /* [THÊM] Đồng bộ với input */
+    cursor: pointer;
+    /* [THÊM] */
+    transition: background-color var(--transition-speed);
+    /* [THÊM] */
+}
+
+.search-bar button:hover {
+    background: var(--primary-color-dark);
+}
+
+/* Các nút trong bảng (ghi đè Bootstrap) */
+.btn-warning {
+    background: var(--warning-color) !important;
+    color: var(--warning-text) !important;
+    border-color: var(--warning-color) !important;
+}
+
+.btn-warning:hover {
+    background: var(--warning-color-dark) !important;
+    /* [SỬA] Sửa lỗi màu hover */
+    border-color: var(--warning-color-dark) !important;
+    color: var(--warning-text) !important;
+}
+
+.btn-danger {
+    background: var(--error-color) !important;
+    color: var(--white-color) !important;
+    border-color: var(--error-color) !important;
+}
+
+.btn-danger:hover {
+    background: var(--error-color-dark) !important;
+    /* [SỬA] Sửa lỗi màu hover */
+    border-color: var(--error-color-dark) !important;
+}
+
+/* Nút chi tiết (Tạo mới) */
+.btn-detail {
+    background: var(--blue-color);
+    color: var(--white-color);
+    /* [SỬA] Thêm các thuộc tính của .btn vì nó không có class .btn */
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    border-radius: var(--border-radius-sm);
+    text-decoration: none;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+.btn-detail:hover {
+    background: var(--blue-color-dark);
+    color: var(--white-color);
+    /* [THÊM] */
+}
+
+/* Bảng dữ liệu (Table) */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    border: 1px solid var(--medium-gray);
+    /* [THÊM] Viền ngoài cho bảng */
+    border-radius: var(--border-radius-md);
+    /* [THÊM] Bo góc bảng */
+    overflow: hidden;
+    /* [THÊM] Giữ bo góc cho th */
+}
+
+th,
+td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--medium-gray);
+    vertical-align: middle;
+}
+
+th {
+    background: var(--light-gray);
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* [THÊM] Cho phép các link sắp xếp trong <th> */
+th a {
+    text-decoration: none;
+    color: inherit;
+    transition: color var(--transition-speed);
+}
+
+th a:hover {
+    color: var(--primary-color);
+}
+
+tr:hover {
+    background: #f1f5f9;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* Bài 10: Hiển thị ảnh (Avatar) */
+.avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--white-color);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    /* [THÊM] Xuống hàng nếu không đủ chỗ */
+}
+
+/* Bài 6: Phân trang (Pagination) */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 25px;
+}
+
+.pagination a,
+.pagination span {
+    padding: 8px 14px;
+    border: 1px solid var(--medium-gray);
+    text-decoration: none;
+    color: var(--dark-gray);
+    border-radius: var(--border-radius-sm);
+    transition: all var(--transition-speed);
+    font-weight: 500;
+}
+
+.pagination a:hover {
+    background: var(--primary-color);
+    color: var(--white-color);
+    border-color: var(--primary-color);
+}
+
+.pagination .active {
+    background: var(--primary-color);
+    color: var(--white-color);
+    border-color: var(--primary-color);
+    cursor: default;
+}
+
+.pagination .disabled {
+    color: var(--text-color-light);
+    /* [SỬA] Sửa lỗi màu chữ */
+    cursor: not-allowed;
+    background: var(--light-gray);
+}
+
+/* Các kiểu dáng phụ */
+.no-data {
+    text-align: center;
+    padding: 50px;
+    color: var(--text-color-light);
+}
+
+.user-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: var(--light-gray);
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--medium-gray);
+}

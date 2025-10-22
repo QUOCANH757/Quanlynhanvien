@@ -1,0 +1,10 @@
+# Editors
+/.idea/*
+/.vscode/*
+
+# Libraries
+/system/composer/vendor/*
+/node_modules/*
+
+# logs
+/system/logs/*

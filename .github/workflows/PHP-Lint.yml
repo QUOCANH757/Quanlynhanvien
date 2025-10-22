@@ -1,0 +1,20 @@
+name: PHP CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Validate composer.json and composer.lock
+      run: composer validate
+
+    - name: Install Lint
+      run: composer install --prefer-dist --no-progress --no-suggest
+      
+    - name: Lint code
+      run: composer lint

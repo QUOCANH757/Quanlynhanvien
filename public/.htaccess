@@ -1,0 +1,9 @@
+RewriteEngine On
+RewriteBase /
+
+# Nếu file/folder tồn tại, cho phép truy cập trực tiếp
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Chuyển tất cả request về index.php
+RewriteRule ^(.*)$ index.php [L,QSA]

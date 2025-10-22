@@ -1,0 +1,71 @@
+/* CSS tùy chỉnh cho form liên hệ chuyên nghiệp */
+body {
+    background-color: #38bad4;
+    /* Màu nền xám rất nhạt, sạch sẽ */
+    font-family: 'Be Vietnam Pro', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.contact-card {
+    width: 100%;
+    max-width: 600px;
+    background-color: #fbfbfb;
+    border-radius: 16px;
+    border: none;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+    /* Đổ bóng sâu và mềm mại */
+    padding: 2.5rem 3rem;
+    /* Tăng padding để thoáng hơn */
+}
+
+.contact-card h2 {
+    text-align: center;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+}
+
+/* Tùy chỉnh các ô nhập liệu */
+.form-control {
+    border-radius: 8px;
+    /* Bo góc nhẹ cho input */
+    border: 1px solid #dce1e5;
+    padding: 0.85rem 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-control:focus {
+    border-color: #0d6efd;
+    /* Màu viền khi focus */
+    box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.15);
+    /* Hiệu ứng tỏa sáng khi focus */
+}
+
+.form-label {
+    font-weight: 500;
+    color: #34495e;
+}
+
+/* Tùy chỉnh nút bấm */
+.btn-submit {
+    width: 100%;
+    background-color: #0d6efd;
+    border: none;
+    color: rgb(15, 43, 155);
+    padding: 0.9rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-submit:hover {
+    background-color: #0b5ed7;
+    transform: translateY(-3px);
+    /* Hiệu ứng nhấc lên khi hover */
+    box-shadow: 0 6px 20px rgba(13, 110, 253, 0.3);
+}
