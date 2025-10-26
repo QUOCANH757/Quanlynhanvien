@@ -11,7 +11,7 @@ class Database {
     private function __construct() {
         // Thông tin kết nối CSDL
         $host = 'localhost';
-        $dbname = 'student_management';
+        $dbname = 'quanlynhansu';
         $username = 'root';
         $password = '';
         
