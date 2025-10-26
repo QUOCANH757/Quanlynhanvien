@@ -11,13 +11,13 @@ class Database {
     private function __construct() {
         // Thông tin kết nối CSDL
         $host = 'localhost';
-        $dbname = 'student_management';
+        $dbname = 'quanlynhansu';
         $username = 'root';
         $password = '';
         
         try {
 $this->pdo = new PDO(
-    "mysql:host=$host;dbname=$dbname;charset=utf8mb4",
+    "mysql:host=127.0.0.1;port=3307;dbname=$dbname;charset=utf8mb4",
     $username,
     $password,
     [
