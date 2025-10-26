@@ -1,7 +1,7 @@
 <?php
 /**
  * File: src/common/Database.php
- * Quản lý kết nối cơ sở dữ liệu
+ * Quản lý kết nối cơ sở dữ liệu xin chaof
  */
 
 class Database {
